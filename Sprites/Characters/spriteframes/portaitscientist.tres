@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dvho76oamlgfd"]
+
+[ext_resource type="Texture2D" uid="uid://d1la2teo4npun" path="res://Sprites/Characters/YANTW_-_Scientist_Portrait_Sheet_1.png" id="1_5sjqp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etuav"]
+atlas = ExtResource("1_5sjqp")
+region = Rect2(0, 180, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_667hg"]
+atlas = ExtResource("1_5sjqp")
+region = Rect2(160, 180, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m36pv"]
+atlas = ExtResource("1_5sjqp")
+region = Rect2(320, 180, 160, 180)
+
+[resource]
+resource_local_to_scene = true
+resource_name = "portait"
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_etuav")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_667hg")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_m36pv")
+}],
+"loop": true,
+"name": &"Scientist_Idle",
+"speed": 5.0
+}]

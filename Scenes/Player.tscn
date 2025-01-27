@@ -1,0 +1,285 @@
+[gd_scene load_steps=30 format=3 uid="uid://bbd3fldqwv6fy"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_lgcxk"]
+[ext_resource type="Texture2D" uid="uid://pcm7lmcsb27h" path="res://Sprites/rocket.png" id="2_4us8n"]
+[ext_resource type="Texture2D" uid="uid://bpb0rvblbwtlw" path="res://Sprites/wipHUD.png" id="3_76txa"]
+[ext_resource type="Texture2D" uid="uid://bebj1as6j1em3" path="res://Sprites/Characters/YANTW_-_Missile_Player_Portrait_-_Sheet.png" id="4_ctfki"]
+[ext_resource type="SpriteFrames" uid="uid://dvho76oamlgfd" path="res://Sprites/Characters/spriteframes/portaitscientist.tres" id="5_ycp1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4eb6"]
+atlas = ExtResource("2_4us8n")
+region = Rect2(0, 0, 130, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jidsm"]
+atlas = ExtResource("2_4us8n")
+region = Rect2(130, 0, 130, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3c7h"]
+atlas = ExtResource("2_4us8n")
+region = Rect2(260, 0, 130, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1060"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_b4eb6")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_jidsm")
+}, {
+"duration": 0.3,
+"texture": SubResource("AtlasTexture_n3c7h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kl1o"]
+size = Vector2(44.0005, 120)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14yvw"]
+radius = 28.0713
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_danr5"]
+
+[sub_resource type="Gradient" id="Gradient_qpwer"]
+offsets = PackedFloat32Array(0, 0.29249, 1)
+colors = PackedColorArray(1, 1, 0.2, 1, 1, 0.498833, 0.03, 1, 0.266575, 0.266575, 0.266575, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5jba"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(0, 0, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y1ib"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(160, 0, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxnkl"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(320, 0, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn86j"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(0, 180, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu2b0"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(160, 180, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1ofx"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(320, 180, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0hl7"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(0, 360, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rrec"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(160, 360, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exa0q"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(320, 360, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77mww"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(0, 540, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbtbc"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(160, 540, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdbo5"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(320, 540, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jig5l"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(0, 0, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_was8m"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(160, 0, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0ioe"]
+atlas = ExtResource("4_ctfki")
+region = Rect2(320, 0, 160, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_boqhk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5jba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y1ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxnkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tn86j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu2b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1ofx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0hl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rrec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exa0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77mww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbtbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdbo5")
+}],
+"loop": true,
+"name": &"All",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_jig5l")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_was8m")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_h0ioe")
+}],
+"loop": true,
+"name": &"Eye_Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 0.5
+script = ExtResource("1_lgcxk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.00003, -2.17399e-05)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_s1060")
+autoplay = "default"
+frame_progress = 0.188392
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+position = Vector2(-1.00003, -2.17399e-05)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_3kl1o")
+
+[node name="BodyShape2" type="CollisionShape2D" parent="."]
+position = Vector2(29, 0)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_14yvw")
+
+[node name="NoseArea" type="Area2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+collision_layer = 2
+collision_mask = 2
+
+[node name="NoseShape" type="CollisionShape2D" parent="NoseArea"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(43, 0)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_danr5")
+debug_color = Color(0.960908, 0.114898, 0.411442, 0.42)
+
+[node name="Point direction" type="Node2D" parent="."]
+position = Vector2(17, 0)
+
+[node name="Rocket_pos" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation = 1.5708
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[node name="VFXExplosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 120
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.51
+spread = 180.0
+initial_velocity_min = 221.25
+initial_velocity_max = 454.13
+scale_amount_min = 1.73
+scale_amount_max = 8.4
+
+[node name="VFXFire" type="CPUParticles2D" parent="."]
+position = Vector2(-64, 0)
+amount = 120
+lifetime_randomness = 0.51
+emission_shape = 1
+emission_sphere_radius = 10.39
+direction = Vector2(-1, 0)
+spread = 0.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 221.25
+initial_velocity_max = 454.13
+scale_amount_min = 1.73
+scale_amount_max = 8.4
+color_ramp = SubResource("Gradient_qpwer")
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="PlayerUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PlayerUI/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextureRect" type="TextureRect" parent="PlayerUI/Control"]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_76txa")
+stretch_mode = 2
+
+[node name="Eye" type="AnimatedSprite2D" parent="PlayerUI"]
+position = Vector2(91, 119)
+sprite_frames = SubResource("SpriteFrames_boqhk")
+animation = &"Eye_Idle"
+autoplay = "Eye_Idle"
+frame_progress = 0.374523
+
+[node name="Portait" type="AnimatedSprite2D" parent="PlayerUI"]
+texture_filter = 1
+position = Vector2(884, 525)
+scale = Vector2(0.790625, 0.790625)
+sprite_frames = ExtResource("5_ycp1s")
+animation = &"Scientist_Idle"
+autoplay = "Scientist_Idle"
+
+[connection signal="body_entered" from="NoseArea" to="." method="_on_nose_area_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

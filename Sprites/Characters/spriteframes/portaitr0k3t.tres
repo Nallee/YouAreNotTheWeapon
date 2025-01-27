@@ -1,0 +1,33 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cjb3x6dvpxhhm"]
+
+[ext_resource type="Texture2D" uid="uid://bebj1as6j1em3" path="res://Sprites/Characters/YANTW_-_Missile_Player_Portrait_-_Sheet.png" id="1_uo1fs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrj40"]
+atlas = ExtResource("1_uo1fs")
+region = Rect2(0, 540, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyvbu"]
+atlas = ExtResource("1_uo1fs")
+region = Rect2(160, 540, 160, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ieqd"]
+atlas = ExtResource("1_uo1fs")
+region = Rect2(320, 540, 160, 180)
+
+[resource]
+resource_name = "portait"
+animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_wrj40")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_cyvbu")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_3ieqd")
+}],
+"loop": true,
+"name": &"Scientist_Speaking",
+"speed": 5.0
+}]
