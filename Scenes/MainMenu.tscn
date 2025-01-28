@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjth2ul185qmi"]
+
+[ext_resource type="FontFile" uid="uid://dev4jpuedld5j" path="res://Sprites/FOnt/Molot.otf" id="1_58x7x"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_77aiw"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 0.995004)
+script = ExtResource("1_77aiw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -87.365
+offset_right = 58.5
+offset_bottom = 48.635
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(19.335, 0)
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="Level1" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_58x7x")
+theme_override_font_sizes/font_size = 70
+text = "1"
+
+[node name="Level2" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_58x7x")
+theme_override_font_sizes/font_size = 70
+text = "2"
+
+[node name="Level3" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_58x7x")
+theme_override_font_sizes/font_size = 70
+text = "3"
+
+[node name="Level4" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_58x7x")
+theme_override_font_sizes/font_size = 70
+text = "4"
+
+[node name="Level5" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_58x7x")
+theme_override_font_sizes/font_size = 70
+text = "5"
+
+[node name="Level6" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_58x7x")
+theme_override_font_sizes/font_size = 70
+text = "6"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -100.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(50, 0)
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_58x7x")
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="MarginContainer/GridContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

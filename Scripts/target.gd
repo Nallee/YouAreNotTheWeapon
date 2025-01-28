@@ -13,3 +13,4 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body):
 	print("Target hit")
+	

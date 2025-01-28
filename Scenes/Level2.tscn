@@ -1,26 +1,26 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp0og0b2yhqm0"]
+[gd_scene load_steps=16 format=3 uid="uid://4xpnbdsf57de"]
 
-[ext_resource type="PackedScene" uid="uid://d2apw6pf1iksf" path="res://Scenes/level_manager.tscn" id="1_hjpc1"]
-[ext_resource type="PackedScene" uid="uid://bbd3fldqwv6fy" path="res://Scenes/Player.tscn" id="1_j6nul"]
-[ext_resource type="PackedScene" uid="uid://026xsfw0gts2" path="res://Scenes/Target.tscn" id="2_l4vtl"]
-[ext_resource type="Texture2D" uid="uid://d1la2teo4npun" path="res://Sprites/Characters/YANTW_-_Scientist_Portrait_Sheet_1.png" id="2_x27gg"]
-[ext_resource type="Texture2D" uid="uid://2yhr1gqusugx" path="res://Sprites/Tileset.png" id="3_5f1ub"]
-[ext_resource type="Texture2D" uid="uid://buqoy33egp66r" path="res://Sprites/Tileset2.png" id="4_51qwg"]
-[ext_resource type="Texture2D" uid="uid://dxjsvb1ema8ip" path="res://Sprites/wipParalax.png" id="4_cgyad"]
+[ext_resource type="PackedScene" uid="uid://d2apw6pf1iksf" path="res://Scenes/level_manager.tscn" id="1_e5o38"]
+[ext_resource type="Texture2D" uid="uid://d1la2teo4npun" path="res://Sprites/Characters/YANTW_-_Scientist_Portrait_Sheet_1.png" id="2_m0evk"]
+[ext_resource type="PackedScene" uid="uid://bbd3fldqwv6fy" path="res://Scenes/Player.tscn" id="3_jfe6m"]
+[ext_resource type="PackedScene" uid="uid://026xsfw0gts2" path="res://Scenes/Target.tscn" id="4_dd0ry"]
+[ext_resource type="Texture2D" uid="uid://2yhr1gqusugx" path="res://Sprites/Tileset.png" id="5_qlx3d"]
+[ext_resource type="Texture2D" uid="uid://buqoy33egp66r" path="res://Sprites/Tileset2.png" id="6_rc3bk"]
+[ext_resource type="Texture2D" uid="uid://dxjsvb1ema8ip" path="res://Sprites/wipParalax.png" id="7_ecsfs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0fuiw"]
-atlas = ExtResource("2_x27gg")
+atlas = ExtResource("2_m0evk")
 region = Rect2(0, 0, 160, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtc7q"]
-atlas = ExtResource("2_x27gg")
+atlas = ExtResource("2_m0evk")
 region = Rect2(160, 0, 160, 180)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jxls6"]
-atlas = ExtResource("2_x27gg")
+atlas = ExtResource("2_m0evk")
 region = Rect2(320, 0, 160, 180)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bnn28"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqedl"]
 resource_local_to_scene = true
 resource_name = "portait"
 animations = [{
@@ -42,7 +42,7 @@ animations = [{
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y3t2i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8whuc"]
-texture = ExtResource("3_5f1ub")
+texture = ExtResource("5_qlx3d")
 texture_region_size = Vector2i(64, 64)
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -191,7 +191,7 @@ texture_region_size = Vector2i(64, 64)
 6:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lmjcn"]
-texture = ExtResource("4_51qwg")
+texture = ExtResource("6_rc3bk")
 margins = Vector2i(7, 19)
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -245,10 +245,10 @@ sources/1 = SubResource("TileSetAtlasSource_lmjcn")
 
 [node name="Proto" type="Node2D"]
 
-[node name="LevelManager" parent="." instance=ExtResource("1_hjpc1")]
-target = SubResource("SpriteFrames_bnn28")
+[node name="LevelManager" parent="." instance=ExtResource("1_e5o38")]
+target = SubResource("SpriteFrames_dqedl")
 
-[node name="Player" parent="." instance=ExtResource("1_j6nul")]
+[node name="Player" parent="." instance=ExtResource("3_jfe6m")]
 unique_name_in_owner = true
 position = Vector2(0, -64)
 rotation = -1.5708
@@ -258,7 +258,7 @@ rotation = -1.5708
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_y3t2i")
 
-[node name="Area2D" parent="." instance=ExtResource("2_l4vtl")]
+[node name="Area2D" parent="." instance=ExtResource("4_dd0ry")]
 position = Vector2(971, -232)
 scale = Vector2(0.5, 0.5)
 
@@ -280,6 +280,6 @@ motion_scale = Vector2(0.5, 0.5)
 texture_filter = 1
 texture_repeat = 2
 scale = Vector2(3, 3)
-texture = ExtResource("4_cgyad")
+texture = ExtResource("7_ecsfs")
 
 [node name="Environment" type="Node2D" parent="."]

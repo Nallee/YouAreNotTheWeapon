@@ -55,6 +55,7 @@ func _on_nose_area_body_entered(body):
 	vfxexplosion.set_emitting(true)
 	$AnimatedSprite2D.set_visible(false)
 	
+	
 func _on_death_timer_timeout() -> void:
 	get_tree().reload_current_scene()
 	

@@ -2,7 +2,9 @@ extends Node2D
 @export var target = SpriteFrames
 @export var dialog = "res://Dialogs/Level1_Intro.dialogue"
 @export var dialog_start: String = "start"
+@export var nextlevel = "res://Scenes/Level2.tscn"
 @onready var introdelay = $IntroDialog
+
 const Balloon = preload("res://Dialogs/balloon.tscn")
 
 # Called when the node enters the scene tree for the first time.
