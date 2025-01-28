@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://7ppldre31lg5"]
+[gd_scene load_steps=18 format=3 uid="uid://7ppldre31lg5"]
 
 [ext_resource type="PackedScene" uid="uid://d2apw6pf1iksf" path="res://Scenes/level_manager.tscn" id="1_lw47x"]
 [ext_resource type="Texture2D" uid="uid://d1la2teo4npun" path="res://Sprites/Characters/YANTW_-_Scientist_Portrait_Sheet_1.png" id="2_fa4a5"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://026xsfw0gts2" path="res://Scenes/Target.tscn" id="4_voxnb"]
 [ext_resource type="Texture2D" uid="uid://2yhr1gqusugx" path="res://Sprites/Tileset.png" id="5_qxsyo"]
 [ext_resource type="Texture2D" uid="uid://buqoy33egp66r" path="res://Sprites/Tileset2.png" id="6_dd5sl"]
-[ext_resource type="Texture2D" uid="uid://dxjsvb1ema8ip" path="res://Sprites/wipParalax.png" id="7_decm2"]
+[ext_resource type="Texture2D" uid="uid://bqmgxee1d06e5" path="res://Sprites/Enviro/Concrete_3.png" id="7_vaste"]
+[ext_resource type="Texture2D" uid="uid://dvjgplnj4qec3" path="res://Sprites/Enviro/Concrete_1.png" id="8_w6ihs"]
+[ext_resource type="Texture2D" uid="uid://dlnp220ani4mx" path="res://Sprites/Enviro/Concrete_2.png" id="9_pcttb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0fuiw"]
 atlas = ExtResource("2_fa4a5")
@@ -20,7 +22,7 @@ region = Rect2(160, 0, 160, 180)
 atlas = ExtResource("2_fa4a5")
 region = Rect2(320, 0, 160, 180)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dqedl"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbo70"]
 resource_local_to_scene = true
 resource_name = "portait"
 animations = [{
@@ -246,7 +248,7 @@ sources/1 = SubResource("TileSetAtlasSource_lmjcn")
 [node name="Proto" type="Node2D"]
 
 [node name="LevelManager" parent="." instance=ExtResource("1_lw47x")]
-target = SubResource("SpriteFrames_dqedl")
+target = SubResource("SpriteFrames_xbo70")
 
 [node name="Player" parent="." instance=ExtResource("3_7e21f")]
 unique_name_in_owner = true
@@ -274,12 +276,37 @@ layer_0/tile_data = PackedInt32Array(65532, 262145, 0, 65533, 262145, 0, 65534, 
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 texture_repeat = 2
-motion_scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
 texture_filter = 1
 texture_repeat = 2
-scale = Vector2(3, 3)
-texture = ExtResource("7_decm2")
+position = Vector2(107, -1445)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_vaste")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+texture_repeat = 2
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(107, -1445)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_pcttb")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+z_index = 1
+texture_repeat = 2
+motion_scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer2"]
+z_index = 1
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(107, -1445)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("8_w6ihs")
 
 [node name="Environment" type="Node2D" parent="."]
