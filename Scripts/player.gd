@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var torque_strength = 15000 # Ajuster ce facteur pour contrôler la vitesse de rotation
+var torque_strength = 30000 # Ajuster ce facteur pour contrôler la vitesse de rotation
 @onready var body = $"."
 @onready var rocket = $Rocket_pos
 @onready var deathtimer = $DeathTimer
@@ -29,13 +29,13 @@ func _physics_process(delta):
 	
 	if abs(angle_difference) > threshold:
 		apply_torque(angle_difference * torque_strength)
-		set_angular_damp(15)
+		set_angular_damp(5)
 	else:
 		apply_torque(0)
 		set_angular_damp(1000)
 	
 	if Input.is_action_pressed("leftclick"):
-		apply_central_force(velocity_vector * 500)
+		apply_central_force(velocity_vector * 80000 * delta)
 		$VFXFire.set_emitting(true)
 		
 	else:	
