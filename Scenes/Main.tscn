@@ -20,7 +20,7 @@ region = Rect2(160, 0, 160, 180)
 atlas = ExtResource("2_x27gg")
 region = Rect2(320, 0, 160, 180)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_palbu"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_6gby0"]
 resource_local_to_scene = true
 resource_name = "portait"
 animations = [{
@@ -246,7 +246,7 @@ sources/1 = SubResource("TileSetAtlasSource_lmjcn")
 [node name="Proto" type="Node2D"]
 
 [node name="LevelManager" parent="." instance=ExtResource("1_hjpc1")]
-target = SubResource("SpriteFrames_palbu")
+target = SubResource("SpriteFrames_6gby0")
 
 [node name="Player" parent="." instance=ExtResource("1_j6nul")]
 unique_name_in_owner = true

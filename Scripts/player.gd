@@ -15,7 +15,7 @@ func _ready() -> void:
 	portait.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta):
 	
 	var front = $"Point direction".global_position
 	var mouse_pos = get_global_mouse_position()
