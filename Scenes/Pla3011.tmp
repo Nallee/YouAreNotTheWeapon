@@ -1,9 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://bbd3fldqwv6fy"]
+[gd_scene load_steps=30 format=3 uid="uid://bbd3fldqwv6fy"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_lgcxk"]
 [ext_resource type="Texture2D" uid="uid://pcm7lmcsb27h" path="res://Sprites/rocket.png" id="2_4us8n"]
 [ext_resource type="Texture2D" uid="uid://bpb0rvblbwtlw" path="res://Sprites/wipHUD.png" id="3_76txa"]
-[ext_resource type="FontFile" uid="uid://rubs0ebdspom" path="res://Sprites/FOnt/kremlin.ttf" id="3_kky2o"]
 [ext_resource type="Texture2D" uid="uid://bebj1as6j1em3" path="res://Sprites/Characters/YANTW_-_Missile_Player_Portrait_-_Sheet.png" id="4_ctfki"]
 [ext_resource type="SpriteFrames" uid="uid://dvho76oamlgfd" path="res://Sprites/Characters/spriteframes/portaitscientist.tres" id="5_ycp1s"]
 
@@ -243,48 +242,8 @@ scale_amount_min = 1.73
 scale_amount_max = 8.4
 color_ramp = SubResource("Gradient_qpwer")
 
-[node name="PauseMenu" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="PauseMenu"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="PauseMenu/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1880.0
-offset_bottom = 1040.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.160784)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 371.0
-offset_top = 414.0
-offset_right = 765.0
-offset_bottom = 490.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="PauseMenu/Control/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_kky2o")
-theme_override_font_sizes/font_size = 60
-text = "Next Level"
-
 [node name="PlayerUI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="Control" type="Control" parent="PlayerUI"]
 layout_mode = 3
@@ -324,4 +283,3 @@ autoplay = "Scientist_Idle"
 
 [connection signal="body_entered" from="NoseArea" to="." method="_on_nose_area_body_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
-[connection signal="pressed" from="PauseMenu/Control/VBoxContainer/Button" to="." method="_on_button_pressed"]

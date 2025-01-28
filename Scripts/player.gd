@@ -2,17 +2,20 @@ extends RigidBody2D
 
 var torque_strength = 30000 # Ajuster ce facteur pour contrôler la vitesse de rotation
 @onready var body = $"."
+@onready var pause_menu: CanvasLayer = $PauseMenu
 @onready var rocket = $Rocket_pos
 @onready var deathtimer = $DeathTimer
 @onready var vfxexplosion = $VFXExplosion
 @onready var levelmanager = $"../LevelManager"
 @onready var targetsprite = $"../LevelManager".target
 @onready var portait = $PlayerUI/Portait
+@onready var rocketsprite = $AnimatedSprite2D
 @onready var dialog = levelmanager.dialog
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$PlayerUI/Portait.sprite_frames = targetsprite
 	portait.play()
+	pause_menu.set_visible(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -44,18 +47,23 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("rightclick"):
 		Engine.set_time_scale(0.3)
-		torque_strength = 30000
+		torque_strength = 50000
 	else:
 		Engine.set_time_scale(1)
-		torque_strength = 15000
+		torque_strength = 30000
 
 func _on_nose_area_body_entered(body):
 	print("boom")
 	deathtimer.start()
 	vfxexplosion.set_emitting(true)
-	$AnimatedSprite2D.set_visible(false)
+	rocketsprite.set_visible(false)
 	
 	
 func _on_death_timer_timeout() -> void:
 	get_tree().reload_current_scene()
 	
+
+
+func _on_button_pressed() -> void:
+	var nextlevel = levelmanager.nextlevel
+	get_tree().change_scene_to_file(nextlevel)
