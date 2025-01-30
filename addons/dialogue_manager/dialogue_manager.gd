@@ -616,6 +616,8 @@ func mutate(mutation: Dictionary, extra_game_states: Array, is_inline_mutation: 
 	await Engine.get_main_loop().process_frame
 
 
+	
+
 func mutation_contains_assignment(mutation: Array) -> bool:
 	for token in mutation:
 		if token.type == DialogueConstants.TOKEN_ASSIGNMENT:

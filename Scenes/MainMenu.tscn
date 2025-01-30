@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjth2ul185qmi"]
+[gd_scene load_steps=4 format=3 uid="uid://bjth2ul185qmi"]
 
 [ext_resource type="FontFile" uid="uid://dev4jpuedld5j" path="res://Sprites/FOnt/Molot.otf" id="1_58x7x"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_77aiw"]
+[ext_resource type="Texture2D" uid="uid://besd1rc5y3fvk" path="res://Sprites/KeyArt.png" id="3_ay57y"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -21,10 +22,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -58.5
-offset_top = -87.365
-offset_right = 58.5
-offset_bottom = 48.635
+offset_left = -142.0
+offset_top = -215.003
+offset_right = 142.0
+offset_bottom = -79.0027
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(19.335, 0)
@@ -33,42 +34,44 @@ pivot_offset = Vector2(19.335, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-columns = 3
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 0
+columns = 6
 
 [node name="Level1" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_58x7x")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 text = "1"
 
 [node name="Level2" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_58x7x")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 text = "2"
 
 [node name="Level3" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_58x7x")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 text = "3"
 
 [node name="Level4" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_58x7x")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 text = "4"
 
 [node name="Level5" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_58x7x")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 text = "5"
 
 [node name="Level6" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_58x7x")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 text = "6"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -95,5 +98,20 @@ text = "QUIT"
 icon_alignment = 1
 expand_icon = true
 
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_ay57y")
+expand_mode = 2
+
 [connection signal="pressed" from="MarginContainer/GridContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/Level4" to="." method="_on_level_4_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

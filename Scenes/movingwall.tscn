@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt0fd0rqvfjly"]
+
+[ext_resource type="Script" path="res://Sprites/Movingwall.gd" id="1_8jfgp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7kdy0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xexvx"]
+
+[sub_resource type="Animation" id="Animation_dn0fq"]
+resource_name = "MovingWall01"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.833333, 1.13334, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 430), Vector2(0, 430), Vector2(0, -416), Vector2(0, -416), Vector2(0, 430)]
+}
+
+[sub_resource type="Animation" id="Animation_aew4t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -84)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ly57b"]
+_data = {
+"MovingWall01": SubResource("Animation_dn0fq"),
+"RESET": SubResource("Animation_aew4t")
+}
+
+[node name="Movingwall" type="Node2D"]
+script = ExtResource("1_8jfgp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, -84)
+scale = Vector2(100, 850)
+mesh = SubResource("BoxMesh_7kdy0")
+
+[node name="Area2D" type="Area2D" parent="MeshInstance2D"]
+position = Vector2(0, -0.261176)
+scale = Vector2(0.01, 0.00117647)
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeshInstance2D/Area2D"]
+position = Vector2(0, 223)
+scale = Vector2(5.1, 42)
+shape = SubResource("RectangleShape2D_xexvx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ly57b")
+}
+
+[node name="Delay" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="MeshInstance2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

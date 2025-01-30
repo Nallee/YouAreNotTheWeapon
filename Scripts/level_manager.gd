@@ -3,6 +3,7 @@ extends Node2D
 @export var dialog = "res://Dialogs/Level1_Intro.dialogue"
 @export var dialog_start: String = "start"
 @export var nextlevel = "res://Scenes/Level2.tscn"
+@export var timer: int = 10
 @onready var introdelay = $IntroDialog
 
 const Balloon = preload("res://Dialogs/balloon.tscn")

@@ -1,11 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://bbd3fldqwv6fy"]
+[gd_scene load_steps=36 format=3 uid="uid://bbd3fldqwv6fy"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_lgcxk"]
 [ext_resource type="Texture2D" uid="uid://pcm7lmcsb27h" path="res://Sprites/rocket.png" id="2_4us8n"]
-[ext_resource type="Texture2D" uid="uid://bpb0rvblbwtlw" path="res://Sprites/wipHUD.png" id="3_76txa"]
 [ext_resource type="FontFile" uid="uid://rubs0ebdspom" path="res://Sprites/FOnt/kremlin.ttf" id="3_kky2o"]
 [ext_resource type="Texture2D" uid="uid://bebj1as6j1em3" path="res://Sprites/Characters/YANTW_-_Missile_Player_Portrait_-_Sheet.png" id="4_ctfki"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="4_kclvd"]
+[ext_resource type="Texture2D" uid="uid://b5scq7s1ov6rn" path="res://Sprites/HUD/Jam_-_HUD_1.png" id="5_uawuc"]
 [ext_resource type="SpriteFrames" uid="uid://dvho76oamlgfd" path="res://Sprites/Characters/spriteframes/portaitscientist.tres" id="5_ycp1s"]
+[ext_resource type="Texture2D" uid="uid://b1rr7pudkhyyy" path="res://Sprites/HUD/Jam_-_HUD_2.png" id="6_6guwl"]
+[ext_resource type="Texture2D" uid="uid://cg4g71grfagss" path="res://Sprites/HUD/Jam_-_HUD_3.png" id="7_a0btj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4eb6"]
 atlas = ExtResource("2_4us8n")
@@ -45,9 +48,19 @@ radius = 28.0713
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_danr5"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_njvyn"]
+
 [sub_resource type="Gradient" id="Gradient_qpwer"]
 offsets = PackedFloat32Array(0, 0.29249, 1)
 colors = PackedColorArray(1, 1, 0.2, 1, 1, 0.498833, 0.03, 1, 0.266575, 0.266575, 0.266575, 1)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xut3q"]
+frames = 3
+frame_0/texture = ExtResource("5_uawuc")
+frame_1/texture = ExtResource("6_6guwl")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("7_a0btj")
+frame_2/duration = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5jba"]
 atlas = ExtResource("4_ctfki")
@@ -185,6 +198,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_3kl1o")
 
 [node name="BodyShape2" type="CollisionShape2D" parent="."]
+visibility_layer = 7
 position = Vector2(29, 0)
 rotation = 1.5708
 shape = SubResource("CircleShape2D_14yvw")
@@ -192,8 +206,8 @@ shape = SubResource("CircleShape2D_14yvw")
 [node name="NoseArea" type="Area2D" parent="."]
 light_mask = 4
 visibility_layer = 4
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 6
 
 [node name="NoseShape" type="CollisionShape2D" parent="NoseArea"]
 light_mask = 2
@@ -202,6 +216,16 @@ position = Vector2(43, 0)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_danr5")
 debug_color = Color(0.960908, 0.114898, 0.411442, 0.42)
+
+[node name="VictoryArea" type="Area2D" parent="."]
+visibility_layer = 7
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VictoryArea"]
+position = Vector2(42, 0)
+scale = Vector2(2.46, 2.46)
+shape = SubResource("CircleShape2D_njvyn")
 
 [node name="Point direction" type="Node2D" parent="."]
 position = Vector2(17, 0)
@@ -251,18 +275,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="PauseMenu/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1880.0
-offset_bottom = 1040.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.160784)
-
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Control"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -277,14 +291,71 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button" type="Button" parent="PauseMenu/Control/VBoxContainer"]
+z_index = 4
+y_sort_enabled = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_kky2o")
 theme_override_font_sizes/font_size = 60
 text = "Next Level"
 
+[node name="ColorRect" type="ColorRect" parent="PauseMenu/Control"]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1880.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0, 0, 0.160784)
+
 [node name="PlayerUI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
+
+[node name="Panel" type="Panel" parent="PlayerUI"]
+z_index = 1
+offset_left = 225.45
+offset_top = 54.795
+offset_right = 337.15
+offset_bottom = 80.795
+mouse_filter = 2
+script = ExtResource("4_kclvd")
+
+[node name="Minutes" type="Label" parent="PlayerUI/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "00:"
+horizontal_alignment = 2
+
+[node name="Sec" type="Label" parent="PlayerUI/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 64.0
+offset_bottom = 23.0
+text = "00."
+horizontal_alignment = 2
+
+[node name="Mil" type="Label" parent="PlayerUI/Panel"]
+layout_mode = 0
+offset_left = 53.0
+offset_right = 93.0
+offset_bottom = 23.0
+text = "000"
+horizontal_alignment = 2
+
+[node name="Annonce" type="Label" parent="PlayerUI/Panel"]
+layout_mode = 0
+offset_left = 1.82
+offset_top = 33.175
+offset_right = 162.82
+offset_bottom = 56.175
+text = "You have 10 seconds"
+horizontal_alignment = 2
 
 [node name="Control" type="Control" parent="PlayerUI"]
 layout_mode = 3
@@ -293,6 +364,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="PlayerUI/Control"]
 layout_mode = 0
@@ -304,8 +376,9 @@ layout_mode = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_76txa")
-stretch_mode = 2
+mouse_filter = 2
+texture = SubResource("AnimatedTexture_xut3q")
+expand_mode = 2
 
 [node name="Eye" type="AnimatedSprite2D" parent="PlayerUI"]
 position = Vector2(91, 119)

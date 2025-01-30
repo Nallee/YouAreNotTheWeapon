@@ -13,16 +13,21 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_body_entered(body):
+func _on_area_body_entered(body):
 	print("Target hit")
-	
 	player.vfxexplosion.set_emitting(true)
 	player.rocketsprite.set_visible(false)
 	endtimer.start()
 	
 
+func _on_area_entered(area: Area2D) -> void:
+	print("Target hit")
+	player.vfxexplosion.set_emitting(true)
+	player.rocketsprite.set_visible(false)
+	player.iswin = true
+	endtimer.start()
+	
 
 
 func _on_timer_timeout() -> void:
 	player.pause_menu.set_visible(true)
-	
